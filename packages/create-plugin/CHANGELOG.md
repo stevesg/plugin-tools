@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.10.0](https://github.com/grafana/plugin-tools/compare/@grafana/create-plugin@7.9.2...@grafana/create-plugin@7.10.0) (2026-08-11)
+
+
+### Features
+
+* **create-plugin:** make Playwright config extendable ([#2807](https://github.com/grafana/plugin-tools/issues/2807)) ([b7dd0fb](https://github.com/grafana/plugin-tools/commit/b7dd0fbf299e6a99bef04a1fc74e4f2c11a17a47))
+
 ## [7.9.2](https://github.com/grafana/plugin-tools/compare/@grafana/create-plugin@7.9.1...@grafana/create-plugin@7.9.2) (2026-08-05)
 
 
