@@ -13,6 +13,7 @@ export type FeatureFlags = {
   bundleGrafanaUI?: boolean;
   useExperimentalRspack?: boolean;
   useExperimentalUpdates?: boolean;
+  appSdkCodegen?: boolean;
 };
 
 export type CreatePluginConfig = UserConfig & {

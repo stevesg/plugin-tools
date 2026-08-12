@@ -123,6 +123,9 @@ export function getTemplateData(cliArgs?: GenerateCliArgs): TemplateData {
       bundleGrafanaUI,
       scenesVersion: '^7.0.0',
       useExperimentalRspack: Boolean(features.useExperimentalRspack),
+      // app-sdk codegen only makes sense for an app plugin with a Go backend to compile the
+      // generated types; ignore the flag otherwise (a warning is emitted in the generate command).
+      appSdkCodegen: Boolean(features.appSdkCodegen) && isAppType(cliArgs.pluginType) && cliArgs.hasBackend,
       frontendBundler,
     };
     // Updating or migrating a plugin
@@ -148,6 +151,7 @@ export function getTemplateData(cliArgs?: GenerateCliArgs): TemplateData {
       scenesVersion: '^7.0.0',
       pluginExecutable: pluginJson.executable,
       useExperimentalRspack: Boolean(features.useExperimentalRspack),
+      appSdkCodegen: Boolean(features.appSdkCodegen) && isAppType(pluginJson.type) && Boolean(pluginJson.backend),
       frontendBundler,
     };
   }

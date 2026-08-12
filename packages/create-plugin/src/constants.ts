@@ -26,6 +26,7 @@ export const TEMPLATE_PATHS: Record<string, string> = {
   datasource: path.join(TEMPLATES_DIR, 'datasource'),
   panel: path.join(TEMPLATES_DIR, 'panel'),
   ciWorkflows: path.join(TEMPLATES_DIR, 'github'),
+  appSdk: path.join(TEMPLATES_DIR, 'app-sdk'),
 };
 
 export enum PLUGIN_TYPES {
@@ -52,6 +53,9 @@ export const DEFAULT_FEATURE_FLAGS = {
   bundleGrafanaUI: false,
   useExperimentalRspack: false,
   useExperimentalUpdates: true,
+  // Scaffolds grafana-app-sdk CUE kinds + a `mage generate` codegen target.
+  // Only meaningful for app plugins with a Go backend.
+  appSdkCodegen: false,
 };
 
 export const GRAFANA_FE_PACKAGES = ['@grafana/data', '@grafana/runtime', '@grafana/schema', '@grafana/ui'];

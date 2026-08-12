@@ -15,6 +15,12 @@ export const copyFilePatterns = [
   { from: '../CHANGELOG.md', to: '.', force: true },
   { from: '**/*.json', to: '.' },
   { from: '**/query_help.md', to: '.', noErrorOnMissing: true },
+  // grafana-app-sdk app manifest, for plugins that declare CUE kinds in ./kinds.
+  // `mage generate` writes it to definitions/<appName>-manifest.json; the glob keeps this working if
+  // the app is renamed, and the fixed `to` gives Grafana a stable name to look for in the bundle.
+  // Paths are relative to SOURCE_DIR, hence the `../`. noErrorOnMissing makes this a no-op for
+  // plugins that don't use the app-sdk, and before the first `mage generate` run.
+  { from: '../definitions/*-manifest.json', to: 'app-sdk-manifest.json', force: true, noErrorOnMissing: true },
   ...logoPaths.map((logoPath) => ({ from: logoPath, to: logoPath })),
   ...screenshotPaths.map((screenshotPath) => ({
     from: screenshotPath,
